@@ -7,9 +7,9 @@ import java.util.*;
 import javax.swing.*;
 import javax.swing.Timer;
 
-@SuppressWarnings("unused")
 public class GameField extends JPanel implements ActionListener {
 
+	private static final long serialVersionUID = 1L;
 	private final int SIZE = 320;
 	private final int DOT_SIZE = 16;
 	private final int ALL_DOTS = 400;
@@ -81,12 +81,17 @@ public class GameField extends JPanel implements ActionListener {
 					g.drawString(pause, 125, SIZE / 2);
 				}
 			} else if (!inGame) {
-
 				String str = "Game Over";
-				Font f = new Font("Arial", Font.BOLD, 14);
+				String rest = "\"R\" to RESTART";
+				String exit = "\"E\" to EXIT";
+				Font s = new Font("Arial", Font.BOLD, 20);
+				Font r = new Font("Arial", Font.BOLD, 14);
 				g.setColor(Color.white);
-				g.setFont(f);
-				g.drawString(str, 125, SIZE / 2);
+				g.setFont(s);
+				g.drawString(str, 125, SIZE / 4);
+				g.setFont(r);
+				g.drawString(rest, 125, SIZE / 2);
+				g.drawString(exit, 125, SIZE / 2 + SIZE / 4);
 			}
 		}
 	}
@@ -134,7 +139,7 @@ public class GameField extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (inGame && firstStart == false) {
+		if (inGame && !firstStart) {
 			checkApple();
 			checkCollisions();
 			move();
@@ -170,6 +175,16 @@ public class GameField extends JPanel implements ActionListener {
 					repaint();
 				} else if (key == KeyEvent.VK_ENTER) {
 					firstStart = false;
+				} else if (key == KeyEvent.VK_E && !inGame) {
+					System.exit(1);
+				} else if (key == KeyEvent.VK_R && !inGame) {
+					inGame = true;
+					left = false;
+					right = true;
+					up = false;
+					down = false;
+					timer.stop();
+					initGame();
 				}
 			} else if (key == KeyEvent.VK_SPACE && !timer.isRunning()) {
 				timer.start();
