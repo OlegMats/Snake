@@ -111,7 +111,7 @@ public class GameField extends JPanel implements ActionListener {
 		if (x[0] == appleX && y[0] == appleY) {
 			dots++;
 			createApple();
-			timer.setDelay(timer.getDelay() - 10);
+			timer.setDelay(timer.getDelay() - 5);
 		}
 	}
 
