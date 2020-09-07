@@ -92,6 +92,8 @@ public class GameField extends JPanel implements ActionListener {
 		}
 	}
 
+
+
 	public void move() {
 		for (int i = dots; i > 0; i--) {
 			x[i] = x[i - 1];
@@ -140,6 +142,9 @@ public class GameField extends JPanel implements ActionListener {
 			checkApple();
 			checkCollisions();
 			move();
+		} else {
+			new Records(score);
+			timer.stop();
 		}
 		repaint();
 	}
@@ -170,6 +175,10 @@ public class GameField extends JPanel implements ActionListener {
 				} else if (key == KeyEvent.VK_SPACE) {
 					timer.stop();
 					repaint();
+				}
+			} else {
+				if (key == KeyEvent.VK_SPACE && !timer.isRunning()) {
+					timer.start();
 				} else if (key == KeyEvent.VK_E && !inGame) {
 					System.exit(1);
 				} else if (key == KeyEvent.VK_R && !inGame) {
@@ -182,11 +191,8 @@ public class GameField extends JPanel implements ActionListener {
 					timer.stop();
 					initGame();
 				}
-			} else if (key == KeyEvent.VK_SPACE && !timer.isRunning()) {
-				timer.start();
 			}
 		}
-
 	}
 
 }

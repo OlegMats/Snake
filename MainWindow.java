@@ -63,6 +63,11 @@ public class MainWindow extends JFrame {
 				validate();
 			} else if (e.getActionCommand() == "exit") {
 				System.exit(1);
+			} else if (e.getActionCommand() == "records") {
+				RecordsField rf = new RecordsField();				
+				add(rf);
+				rf.requestFocusInWindow();
+				validate();
 			}
 		}
 
