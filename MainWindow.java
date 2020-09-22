@@ -34,20 +34,14 @@ public class MainWindow extends JFrame {
 		start.setFont(new Font("Arial", Font.BOLD, 20));
 		start.setActionCommand("start");
 
-		JButton records = new JButton("records");
-		records.setFont(new Font("Arial", Font.BOLD, 20));
-		records.setActionCommand("records");
-
 		JButton exit = new JButton("exit");
 		exit.setFont(new Font("Arial", Font.BOLD, 20));
 		exit.setActionCommand("exit");
 
 		pnl.add(start);
-		pnl.add(records);
 		pnl.add(exit);
 
 		start.addActionListener(new ButtonActionListener());
-		records.addActionListener(new ButtonActionListener());
 		exit.addActionListener(new ButtonActionListener());
 	}
 
