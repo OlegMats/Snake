@@ -1,5 +1,3 @@
-package home.snake;
-
 public class Launch {
 
 	@SuppressWarnings("unused")
