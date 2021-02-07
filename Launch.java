@@ -1,9 +1,10 @@
+package home.snake;
 
 public class Launch {
 
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
-		MainWindow q=new MainWindow();
+		MainWindow q = new MainWindow();
 	}
 
 }

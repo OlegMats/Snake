@@ -1,9 +1,12 @@
+package home.snake;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.*;
+
 import javax.swing.*;
 import javax.swing.Timer;
 
@@ -33,7 +36,6 @@ public class GameField extends JPanel implements ActionListener {
 		loadImages();
 		initGame();
 		addKeyListener(new FieldKeyListener());
-		setFocusable(true);
 	}
 
 	public void initGame() {
@@ -53,9 +55,9 @@ public class GameField extends JPanel implements ActionListener {
 	}
 
 	public void loadImages() {
-		ImageIcon iia = new ImageIcon("apple.png");
+		ImageIcon iia = new ImageIcon("src/main/resources/apple.png");
 		apple = iia.getImage();
-		ImageIcon iid = new ImageIcon("dot.png");
+		ImageIcon iid = new ImageIcon("src/main/resources/dot.png");
 		dot = iid.getImage();
 	}
 

@@ -1,0 +1,7 @@
+Small computer game that was created with help of Java Swing/AWT. 
+
+Features:
+-	Speed boost after each apple(skull in my case)              
+-	Pause by clicking “space”
+-	Score in the right top corner
+-	possibility of restart or exit after loss

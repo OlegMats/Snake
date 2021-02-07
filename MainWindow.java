@@ -1,3 +1,5 @@
+package home.snake;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,7 +21,7 @@ public class MainWindow extends JFrame {
 	}
 
 	public void buttons() {
-		JPanel buttonsPanel = new JPanel(new GridLayout(4, 1, 0, 20));
+		JPanel buttonsPanel = new JPanel(new GridLayout(3, 1, 0, 20));
 		creatingButtons(buttonsPanel);
 		JPanel east = new JPanel(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
@@ -34,26 +36,14 @@ public class MainWindow extends JFrame {
 		start.setFont(new Font("Arial", Font.BOLD, 20));
 		start.setActionCommand("start");
 
-		JButton options = new JButton("options");
-		options.setFont(new Font("Arial", Font.BOLD, 20));
-		options.setActionCommand("options");
-
-		JButton records = new JButton("records");
-		records.setFont(new Font("Arial", Font.BOLD, 20));
-		records.setActionCommand("records");
-
 		JButton exit = new JButton("exit");
 		exit.setFont(new Font("Arial", Font.BOLD, 20));
 		exit.setActionCommand("exit");
 
 		pnl.add(start);
-		pnl.add(options);
-		pnl.add(records);
 		pnl.add(exit);
 
 		start.addActionListener(new ButtonActionListener());
-		options.addActionListener(new ButtonActionListener());
-		records.addActionListener(new ButtonActionListener());
 		exit.addActionListener(new ButtonActionListener());
 	}
 
@@ -61,15 +51,15 @@ public class MainWindow extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			getContentPane().removeAll();
 			if (e.getActionCommand() == "start") {
-				getContentPane().removeAll();
-				getContentPane().add(new GameField());
+				GameField gf = new GameField();
+				add(gf);
+				gf.requestFocusInWindow();
 				validate();
-				repaint();
 			} else if (e.getActionCommand() == "exit") {
 				System.exit(1);
 			}
-
 		}
 
 	}
