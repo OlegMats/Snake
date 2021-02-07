@@ -1,3 +1,5 @@
+package home.snake;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -53,9 +55,9 @@ public class GameField extends JPanel implements ActionListener {
 	}
 
 	public void loadImages() {
-		ImageIcon iia = new ImageIcon("apple.png");
+		ImageIcon iia = new ImageIcon("src/main/resources/apple.png");
 		apple = iia.getImage();
-		ImageIcon iid = new ImageIcon("dot.png");
+		ImageIcon iid = new ImageIcon("src/main/resources/dot.png");
 		dot = iid.getImage();
 	}
 
